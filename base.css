@@ -1,0 +1,54 @@
+@media (max-width: 767px) {
+  .hero__border {
+    width: 80%;
+    height: auto;
+    padding: 24px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .gallery img {
+    width: 70px;
+    height: 320px;
+  }
+
+  .gallery img:hover {
+    width: 260px;
+    height: 380px;
+  }
+
+  .video-box {
+    max-width: 100%;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .hero__border {
+    width: 60%;
+    height: auto;
+    padding: 32px;
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .gallery img {
+    width: 90px;
+    height: 380px;
+  }
+
+  .gallery img:hover {
+    width: 300px;
+    height: 450px;
+  }
+
+  .video-box {
+    max-width: 90%;
+  }
+}
