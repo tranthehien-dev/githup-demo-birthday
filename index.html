@@ -42,6 +42,35 @@
             transition: transform .4s ease, box-shadow .4s ease;
             text-align: center;
             position: relative;
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+
+        .card.zoom {
+            animation: fadeIn2 1.8s ease;
+        }
+
+        @keyframes fadeIn2 {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(.7);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
         }
 
         .card:hover {
@@ -243,10 +272,19 @@
 
     <script>
         function openCard() {
-            document.querySelector('.intro').style.display = 'none';
-            document.getElementById('content').classList.add('active');
-            window.scrollTo(0, 0);
+            const intro = document.querySelector('.intro');
+            const card = document.querySelector('.card');
+
+            card.classList.add('zoom');
+
+            setTimeout(() => {
+                intro.style.display = 'none';
+                document.getElementById('content').classList.add('active');
+                window.scrollTo(0, 0);
+            }, 1800); // = thời gian animation
         }
+
+
     </script>
 
 </body>
