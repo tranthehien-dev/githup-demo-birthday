@@ -5,7 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Memories</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -15,13 +17,12 @@
 
         body {
             font-family: 'Playfair Display', serif;
-            background-color: rgba(210, 225, 215, 0.85);
+            background: #d2e1d7;
             color: #5a4a42;
-            scroll-behavior: smooth;
             overflow-x: hidden;
         }
 
-        /* ===== CARD INTRO ===== */
+        /* ================= INTRO CARD ================= */
         .intro {
             height: 100vh;
             display: flex;
@@ -39,58 +40,35 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
-            transition: transform .4s ease, box-shadow .4s ease;
             text-align: center;
             position: relative;
-            animation: fadeIn 1.5s ease-out forwards;
+            animation: fadeIn 1.4s ease forwards;
         }
 
         .card.zoom {
-            animation: fadeIn2 1.8s ease;
+            pointer-events: none;
+            animation: zoomOut 1.8s ease forwards;
         }
 
-        @keyframes fadeIn2 {
-            0% {
-                transform: scale(1);
-                opacity: 1;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.7);
             }
 
-            100% {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes zoomOut {
+            to {
                 transform: scale(3);
                 opacity: 0;
             }
         }
 
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                transform: scale(.7);
-            }
-
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-
-        .card:hover {
-            transform: translateY(-6px) scale(1.05);
-            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.35);
-        }
-
-        .card h1 {
-            font-size: 2.2rem;
-            margin: 16px 0 10px;
-            color: #b04a5a;
-        }
-
-        .card p {
-            font-size: 1rem;
-            letter-spacing: 1px;
-            color: #6b4b52;
-        }
-
-        /* ===== BIRTHDAY CARD DECOR ===== */
         .birthday-card::before {
             content: "";
             position: absolute;
@@ -100,16 +78,16 @@
         }
 
         .badge {
-            display: inline-block;
             background: #b04a5a;
-            color: white;
+            color: #fff;
             padding: 6px 14px;
             border-radius: 20px;
-            font-size: 0.9rem;
-            margin-bottom: 18px;
+            font-size: .9rem;
+            display: inline-block;
+            margin-bottom: 16px;
         }
 
-        /* ===== MAIN CONTENT ===== */
+        /* ================= MAIN CONTENT ================= */
         .content {
             display: none;
         }
@@ -118,47 +96,56 @@
             display: block;
         }
 
-        /* Header */
+        /* ================= VIDEO ================= */
+        .video-bg {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .video-bg video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: relative;
+            z-index: 2;
+            color: white;
+            text-align: center;
+        }
+
+
+        /* ================= HERO ================= */
         .hero {
-            border-radius: 20px;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(245, 242, 235, 0.2), rgba(210, 225, 215, 0.85)),
+            background: linear-gradient(rgba(245, 242, 235, .2), rgba(210, 225, 215, .85)),
                 url('./img/1F1914AF-2558-4785-9362-80DDFA7DF152_1_105_c.jpeg') center/cover no-repeat;
         }
 
         .hero__border {
-            background-color: rgba(255, 255, 255, 0.7);
-            width: 40%;
-            height: 40%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background: rgba(255, 255, 255, .75);
+            padding: 60px 80px;
             border-radius: 30px;
+            text-align: center;
         }
 
         .hero h1 {
             font-size: 3rem;
-            margin-bottom: 12px;
-            color: black;
         }
 
-        .hero p {
-            font-size: 1.2rem;
-            letter-spacing: 1px;
-            color: black;
-        }
-
-        /* Gallery */
+        /* ================= GALLERY ================= */
         .gallery-wrapper {
             padding: 60px 0;
             overflow-x: auto;
-            scrollbar-width: none;
-            overflow-y: visible;
         }
 
         .gallery {
@@ -173,28 +160,17 @@
             object-fit: cover;
             border-radius: 16px;
             flex-shrink: 0;
-
-            border: 2px solid transparent;
-
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            cursor: pointer;
-
-            transition:
-                width 0.4s ease,
-                height 0.4s ease,
-                border 0.3s ease,
-                box-shadow 0.4s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+            transition: width .4s ease, height .4s ease, box-shadow .4s ease;
         }
 
         .gallery img:hover {
             width: 360px;
             height: 500px;
-            border-radius: 14px;
-            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, .35);
         }
 
-
-        /* Video section */
+        /* ================= VIDEO SECTION ================= */
         .video-section {
             padding: 80px 20px;
             display: flex;
@@ -202,11 +178,11 @@
         }
 
         .video-box {
-            width: 100%;
             max-width: 800px;
+            width: 100%;
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
         }
 
         video {
@@ -215,22 +191,20 @@
         }
 
         footer {
+            padding: 40px;
             text-align: center;
-            padding: 40px 0 60px;
-            font-size: 0.9rem;
             color: #8a7b73;
         }
     </style>
     <link rel="stylesheet" href="base.css">
-
 </head>
 
 <body>
 
-    <!-- CARD INTRO (Birthday Card Style) -->
+    <!-- INTRO CARD -->
     <section class="intro">
         <div class="card birthday-card" onclick="openCard()">
-            <div class="card-front">
+            <div>
                 <span class="badge">🎉 Happy Birthday 🎉</span>
                 <h1>For You</h1>
                 <p>Click để mở thiệp</p>
@@ -238,8 +212,19 @@
         </div>
     </section>
 
-    <!-- MAIN CONTENT -->
+    <!-- CONTENT -->
     <div class="content" id="content">
+
+        <!-- VIDEO SCROLL -->
+        <section class="video-bg">
+            <video autoplay muted loop playsinline>
+                <source src="video/video_Demo.mp4" type="video/mp4">
+            </video>
+            <div class="overlay">
+                <h1>Your Title</h1>
+            </div>
+        </section>
+
         <section class="hero">
             <div class="hero__border">
                 <h1>Kỷ niệm chúng ta</h1>
@@ -249,11 +234,10 @@
 
         <section class="gallery-wrapper">
             <div class="gallery">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552" alt="" />
-                <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac" alt="" />
-                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2" alt="" />
-                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc" alt="" />
-                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed" alt="" />
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552">
+                <img src="https://images.unsplash.com/photo-1529634806980-85c3dd6d34ac">
+                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2">
+                <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc">
             </div>
         </section>
 
@@ -265,26 +249,23 @@
             </div>
         </section>
 
-        <footer>
-            © 2025 Memories edit by Hien
-        </footer>
+        <footer>© 2025 Memories – by Hien</footer>
     </div>
 
     <script>
         function openCard() {
-            const intro = document.querySelector('.intro');
             const card = document.querySelector('.card');
+            const intro = document.querySelector('.intro');
+            const content = document.getElementById('content');
 
             card.classList.add('zoom');
 
             setTimeout(() => {
                 intro.style.display = 'none';
-                document.getElementById('content').classList.add('active');
+                content.classList.add('active');
                 window.scrollTo(0, 0);
-            }, 1800); // = thời gian animation
+            }, 1800);
         }
-
-
     </script>
 
 </body>
