@@ -304,7 +304,7 @@
             position: relative;
         }
         .box_gift_icon.active{
-            animation: zoomOut1 1.2s ease forwards;
+            animation: zoomOut1 .6s ease forwards;
         }
         @keyframes zoomOut1 {
             to {
@@ -333,7 +333,9 @@
         .box_gift_icon{
             width: 200px;
             height: 200px;    
-            transform: rotate(-14deg);    
+            transform: rotate(-14deg);  
+            position: relative;
+            z-index: 10;  
         }
         .video-box {
             display: flex;
@@ -350,6 +352,8 @@
         }
 
         video {
+            position: relative;
+            z-index: 1;
             width: 100%;
             display: block;
         }
