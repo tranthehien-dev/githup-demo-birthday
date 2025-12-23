@@ -304,7 +304,7 @@
             position: relative;
         }
         .box_gift_icon.active{
-            animation: zoomOut1 .6s ease forwards;
+            animation: zoomOut1 2.6s ease forwards;
         }
         @keyframes zoomOut1 {
             to {
