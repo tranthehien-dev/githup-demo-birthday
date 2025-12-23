@@ -337,11 +337,12 @@
             position: relative;
             z-index: 10;  
         }
+        
         .video-box {
             display: flex;
             display: none;
             justify-content: center;
-            max-width: 800px;
+            max-width: 100vw;
             width: 100%;
             border-radius: 13px;
             overflow: hidden;
@@ -353,7 +354,7 @@
 
         video {
             position: relative;
-            z-index: 1;
+            z-index: 11;
             width: 100%;
             display: block;
         }
