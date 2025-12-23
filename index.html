@@ -87,31 +87,34 @@
                     <p>Click vào hộp để mở quà nha</p>
                 </div>
                 <div class="video-box">
-                <video controls>
-                    <source src="./video/video_birthdayU.MOV" type="video/mp4">
-                </video>
+                    <iframe src="https://drive.google.com/file/d/1vbL9sTOI7dVD_oqiCs4leZrkozFeVrB_/preview" width="640"
+                        height="360" allow="autoplay" allowfullscreen></iframe>
+                </div>
             </div>
-            </div>
-            
+
         </section>
 
         <footer>© 2025 Memories – by Hien</footer>
     </div>
 
     <script>
-        const Music="./img/music_amee.mp3";
+        const Music = "./img/music_amee.mp3";
         const audio = new Audio(Music);
         audio.loop = true;
         audio.volume = .8;
 
         function openGift() {
             const videoBox = document.querySelector('.video-box');
-            videoBox.classList.add('active');
-            const boxGiftIcon = document.querySelector('.box_gift_icon');
-            const boxGifttitle = document.querySelector('.gift_text');
-            boxGiftIcon.style.display = 'none';
-            boxGifttitle.style.display = 'none';
-            audio.pause();
+            const giftBox = document.querySelector('.box_gift_icon');
+            giftBox.classList.add('active');
+            setTimeout(() => {
+                videoBox.classList.add('active');
+                const boxGiftIcon = document.querySelector('.box_gift_icon');
+                const boxGifttitle = document.querySelector('.gift_text');
+                boxGiftIcon.style.display = 'none';
+                boxGifttitle.style.display = 'none';
+                audio.pause();
+            }, 400);
         }
         function openCard() {
             const card = document.querySelector('.birthday-card');
