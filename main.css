@@ -192,7 +192,7 @@
         /* ================= PopUpImg ================= */
         .showPopUp {
             padding: 60px 0;
-        } 
+        }
 
         .showPopUp_img {
             display: flex;
@@ -201,7 +201,7 @@
             padding: 0 40px;
             align-items: center;
             justify-content: center;
-        } 
+        }
 
         .showPopUp_img img {
             width: 110%;
@@ -215,21 +215,27 @@
         .showPopUp_img img.show:nth-child(1) {
             animation: fadeInRightUp 1.4s ease forwards;
         }
+
         .showPopUp_img img.show:nth-child(2) {
             animation: fadeInLeftUp 1.4s ease forwards;
         }
+
         .showPopUp_img img.show:nth-child(3) {
             animation: fadeInRightUp 1.4s ease forwards;
         }
+
         .showPopUp_img img.show:nth-child(4) {
             animation: fadeInLeftUp 1.4s ease forwards;
         }
+
         .showPopUp_img img.show:nth-child(5) {
             animation: fadeInRightUp 1.4s ease forwards;
         }
+
         .showPopUp_img img.show:nth-child(6) {
             animation: fadeInLeftUp 1.4s ease forwards;
         }
+
         .showPopUp_img img.show:nth-child(7) {
             animation: fadeInRightUp 1.4s ease forwards;
         }
@@ -237,23 +243,24 @@
         @keyframes fadeInRightUp {
             from {
                 opacity: 0;
-                transform: translate(50px,10px);
+                transform: translate(50px, 10px);
             }
 
             to {
                 opacity: 1;
-                transform: translate(0,-10px);
+                transform: translate(0, -10px);
             }
         }
-         @keyframes fadeInLeftUp {
+
+        @keyframes fadeInLeftUp {
             from {
                 opacity: 0;
-                transform: translate(-50px,10px);
+                transform: translate(-50px, 10px);
             }
 
             to {
                 opacity: 1;
-                transform: translate(0,-10px);
+                transform: translate(0, -10px);
             }
         }
 
@@ -280,7 +287,53 @@
             transition: width .4s ease, height .4s ease, box-shadow .4s ease;
         }
 
-        .gallery img:hover {
+        .card_img {
+            width: 200px;
+            height: 440px;
+            perspective: 1000px;
+            flex-shrink: 0;
+            position: relative;
+            transform-style: preserve-3d;
+            transform-origin: center;
+            cursor: pointer;
+            transition: width .4s ease, height .4s ease, box-shadow .4s ease;
+        }
+
+        .card_img.active{
+            width: 360px;
+            height: 500px;
+            animation: tranformCard .6s ease forwards;
+
+        }
+
+        @keyframes tranformCard {
+            to {
+                transform: rotateY(180deg);
+            }
+        }
+
+        .card_front,
+        .card_back {
+            width: 100%;
+            height: 100%;
+            border-radius: 16px;
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, .15);
+            transition: transform .6s ease;
+        }
+
+        .card_front {
+            background: url(./img/front_gift_img.png) no-repeat center/cover;
+        }
+
+        .card_back {
+            transform: rotateY(180deg);
+            transition: transform .6s ease forwards;
+        }
+
+        .card_back img.active {
             width: 360px;
             height: 500px;
             box-shadow: 0 25px 45px rgba(0, 0, 0, .35);
@@ -293,7 +346,8 @@
             justify-content: center;
             align-items: center;
         }
-        .box_gift{
+
+        .box_gift {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -303,41 +357,46 @@
             border-radius: 18px;
             position: relative;
         }
-        .box_gift_icon.active{
+
+        .box_gift_icon.active {
             animation: zoomOut1 2.6s ease forwards;
         }
+
         @keyframes zoomOut1 {
             to {
                 transform: scale(4);
                 opacity: 0;
             }
         }
+
         .gift_text {
             margin-top: 12px;
             font-size: 0.8rem;
             color: #5a4a42;
             position: absolute;
-            top : -70px;
+            top: -70px;
             right: -80px;
             background-color: white;
             border-radius: 8px;
             padding: 6px;
         }
-        .gift_text::after{
+
+        .gift_text::after {
             position: absolute;
             top: 26px;
             content: "";
-            border:20px solid white;
+            border: 20px solid white;
             border-color: white transparent transparent transparent;
         }
-        .box_gift_icon{
+
+        .box_gift_icon {
             width: 200px;
-            height: 200px;    
-            transform: rotate(-14deg);  
+            height: 200px;
+            transform: rotate(-14deg);
             position: relative;
-            z-index: 10;  
+            z-index: 10;
         }
-        
+
         .video-box {
             display: flex;
             display: none;
@@ -348,6 +407,7 @@
             overflow: hidden;
             box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
         }
+
         .video-box.active {
             display: flex;
         }
