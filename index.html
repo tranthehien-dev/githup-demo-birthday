@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="base.css">
+</head>
+
+<body>
+
+    <!-- INTRO CARD -->
+    <section class="intro">
+        <div class="card birthday-card" onclick="openCard()">
+            <div>
+                <span class="badge">🎉 Happy Birthday 🎉</span>
+                <h1 style="color: brown;">For You</h1>
+                <p>Click để mở thiệp</p>
+            </div>
+        </div>
+    </section>
+    <section id="password" class="password">
+        <div class="card password-card">
+            <div>
+                <span class="badge">🎉 Happy Birthday 🎉</span>
+                <div class="icon-password">
+                    <i class="fa-solid fa-cake-candles"></i>
+                </div>
+                <div class="form_password">
+                    <i class="fa-regular fa-user"></i>
+                    <input id="mk" type="password" style="border: none; outline: none; padding: 0px 8px;"
+                        placeholder="Nhập mật khẩu">
+                    <button onclick="openPassword()">Enter</button>
+                </div>
+                <div class="hint_password">
+                    <p> Gợi ý: đây là ngày rất tuyệt vời</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTENT -->
+    <div class="content" id="content">
+        <section class="hero">
+            <div class="hero__border">
+                <video id="heroVideo" autoplay muted playsinline preload="metadata">
+                    <source src="./video/video_first.MOV" type="video/mp4">
+                </video>
+            </div>
+        </section>
+        <section class="showPopUp">
+            <div class="showPopUp_img">
+                <img src="./img/anh1.jpg" alt="Photo 1">
+                <img src="./img/anh2.jpg" alt="Photo 2">
+                <img src="./img/anh3.jpg" alt="Photo 3">
+                <img src="./img/anh6.jpg" alt="Photo 6">
+                <img src="./img/anh8.jpg" alt="Photo 4">
+                <img src="./img/anh5.jpg" alt="Photo 5">
+                <img src="./img/anh3_dua/anh3_8.jpg" alt="Photo 5">
+
+            </div>
+        </section>
+        <section class="gallery-wrapper">
+            <div class="gallery">
+                <div class="card_img" onclick="openImg(this)">
+                    <div class="card_front">
+                    </div>
+                    <div class="card_back">
+                        <img src="./img/anh3_dua/anh3_1.jpg" alt="Photo 1">
+                    </div>
+                </div>
+                <div class="card_img" onclick="openImg(this)">
+                    <div class="card_front">
+                    </div>
+                    <div class="card_back">
+                        <img src="./img/anh3_dua/anh3_2.jpg" alt="Photo 2">
+                    </div>
+                </div>
+                <div class="card_img" onclick="openImg(this)">
+                    <div class="card_front">
+                    </div>
+                    <div class="card_back">
+                        <img src="./img/anh3_dua/anh3_3.jpg" alt="Photo 3">
+                    </div>
+                </div>
+                <div class="card_img" onclick="openImg(this)">
+                    <div class="card_front">
+                    </div>
+                    <div class="card_back">
+                        <img src="./img/anh3_dua/anh3_4.jpg" alt="Photo 4">
+                    </div>
+                </div>
+                <div class="card_img" onclick="openImg(this)">
+                    <div class="card_front">
+                    </div>
+                    <div class="card_back">
+                        <img src="./img/anh3_dua/anh3_5.jpg" alt="Photo 5">
+                    </div>
+                </div>
+                <div class="card_img" onclick="openImg(this)">
+                    <div class="card_front">
+                    </div>
+                    <div class="card_back">
+                        <img src="./img/anh3_dua/anh3_6.jpg" alt="Photo 6">
+                    </div>
+                </div>
+                <div class="card_img" onclick="openImg(this)">
+                    <div class="card_front">
+                    </div>
+                    <div class="card_back">
+                        <img src="./img/anh3_dua/anh3_7.jpg" alt="Photo 7">
+                    </div>
+                </div>
+                <div class="card_img" onclick="openImg(this)">
+                    <div class="card_front">
+                    </div>
+                    <div class="card_back">
+                        <img src="./img/anh3_dua/anh3_8.jpg" alt="Photo 8">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <section class="video-section">
+            <div class="box_gift">
+                <img class="box_gift_icon" src="./img/gift.png" alt="" onclick="openGift()">
+                <div class="gift_text">
+                    <p>Click vào hộp để mở quà nha</p>
+                </div>
+                <div class="video-box">
+                    <iframe src="https://drive.google.com/file/d/1vbL9sTOI7dVD_oqiCs4leZrkozFeVrB_/preview" width="640"
+                        height="360" allow="autoplay; fullscreen" allowfullscreen></iframe>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>© 2025 Memories – by Hien</footer>
+    </div>
+
+    <script>
+        const Music = "./img/music_amee.mp3";
+        const audio = new Audio(Music);
+        audio.loop = true;
+        audio.volume = .8;
+
+        function openImg(clickedCard) {
+            // bỏ active của các card khác
+            document.querySelectorAll('.card_img').forEach(card => {
+                card.classList.remove('active');
+            });
+
+            // active card được click
+            clickedCard.classList.add('active');
+            const imgBack = clickedCard.querySelector('.card_back img');
+            if (imgBack) imgBack.classList.add('active');
+        }
+        function openGift() {
+            const videoBox = document.querySelector('.video-box');
+            const giftBox = document.querySelector('.box_gift_icon');
+            giftBox.classList.add('active');
+            setTimeout(() => {
+                videoBox.classList.add('active');
+                const boxGiftIcon = document.querySelector('.box_gift_icon');
+                const boxGifttitle = document.querySelector('.gift_text');
+                boxGiftIcon.style.display = 'none';
+                boxGifttitle.style.display = 'none';
+                audio.pause();
+            }, 1400);
+        }
+        function openFull() {
+            const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+            const url = "https://drive.google.com/file/d/1vbL9sTOI7dVD_oqiCs4leZrkozFeVrB_/view";
+
+            if (isMobile) {
+                window.location.href = url; // mobile → mở trực tiếp
+            } else {
+                window.open(url, "_blank"); // PC → tab mới
+            }
+        }
+        function openCard() {
+            const card = document.querySelector('.birthday-card');
+            const intro = document.querySelector('.intro');
+            const password = document.getElementById('password');
+
+            card.classList.add('shake');
+
+            setTimeout(() => {
+                intro.style.display = 'none';
+                password.classList.add('active');
+                window.scrollTo(0, 0);
+            }, 800);
+        }
+        function openPassword() {
+            const mk = document.getElementById('mk').value;
+            if (mk == '26122003' || mk == '26/12/2003' || mk.toLowerCase() == '26-12-2003' || mk == '261203') {
+                const card = document.querySelector('.password-card');
+                const password = document.querySelector('.password');
+                const content = document.getElementById('content');
+
+                card.classList.add('zoom');
+
+                setTimeout(() => {
+                    password.style.display = 'none';
+                    content.classList.add('active');
+                    window.scrollTo(0, 0);
+                }, 800);
+                audio.play().catch(e => console.log(e));
+            } else {
+                alert('Mật khẩu là ngày sinh nhật đó trời ạ 😒.');
+                document.getElementById('mk').value = '';
+                document.getElementById('mk').focus();
+            }
+        }
+
+        // Replay hero video when the hero section becomes visible again
+        (function () {
+            const vid = document.getElementById('heroVideo');
+            const hero = document.querySelector('.hero');
+            if (!vid || !hero) return;
+
+            const io = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && entry.intersectionRatio > 0.4) {
+                        try { vid.currentTime = 0; } catch (e) { }
+                        vid.play().catch(() => { });
+                    }
+                });
+            }, { threshold: [0, 0.25, 0.4, 0.6, 1] });
+
+            io.observe(hero);
+        })();
+        // scroll fadeIn img
+        document.addEventListener("DOMContentLoaded", () => {
+            const images = document.querySelectorAll(".showPopUp_img img");
+
+            const observer = new IntersectionObserver(
+                (entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add("show");
+                        }
+                    });
+                },
+                {
+                    threshold: 0.3
+                }
+            );
+
+            images.forEach(img => observer.observe(img));
+        });
+    </script>
+
+</body>
+
+</html>
