@@ -188,6 +188,9 @@
             border-radius: 30px;
             text-align: center;
         }
+       .hero__border video{
+            pointer-events: none;
+        }
 
         /* ================= PopUpImg ================= */
         .showPopUp {
