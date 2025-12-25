@@ -137,11 +137,6 @@
     width: 140px;
     height: 280px;
   }
-
-  .gallery img:hover {
-    width: 220px;
-    height: 320px;
-  }
   .box_gift{
     padding: 0;
   }
